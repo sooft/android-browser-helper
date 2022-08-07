@@ -167,6 +167,9 @@ public class WebViewFallbackActivity extends Activity {
         super.onResume();
         if (mWebView != null) {
             mWebView.onResume();
+            mWebView.getSettings().setAppCacheEnabled(false); 
+            mWebView.getSettings().setCacheMode(WebSettings.LOAD_NO_CACHE);
+            mWebView.loadUrl(mLaunchUrl.toString());
         }
     }
 
@@ -280,7 +283,7 @@ public class WebViewFallbackActivity extends Activity {
         webSettings.setJavaScriptEnabled(true);
         webSettings.setDomStorageEnabled(true);
         webSettings.setDatabaseEnabled(true);
-        webSettings.setAppCacheEnabled(false);
-        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        //webSettings.setAppCacheEnabled(false);
+        //webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
     }
 }
